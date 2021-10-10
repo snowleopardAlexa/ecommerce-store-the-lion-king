@@ -8,13 +8,15 @@ const products = [
         id: 1,
         name: 'T-Shirt-Female-1',
         description: 'Simba and Nala T-Shirt Female',
-        price: '$25'
+        price: '$25',
+        image: ''
     },
     {
         id: 2,
         name: 'T-Shirt-Male-1',
         description: 'Simba and Nala T-Shirt Male',
-        price: '$30'
+        price: '$30',
+        image: ''
     },
 ];
 
