@@ -3,9 +3,12 @@ import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '
 import { ShoppingCart } from '@material-ui/icons';
 
 import logo from '../../assets/lion-facing-right.png'
-import { classes } from 'istanbul-lib-coverage';
+import useStyles from './styles';
 
 const Navbar = () => {
+
+    const classes = useStyles();
+
     return (
         <>
           <AppBar position="fixed" className={classes.AppBar} color="inherit">
