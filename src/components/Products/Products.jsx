@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 
 import Product from './Product/Product';
+import useStyles from './styles';
 
 const products = [
     {
@@ -21,6 +22,9 @@ const products = [
 ];
 
 const Products = () => {
+
+    const classes = useStyles();
+
     return (
     <main>
       <Grid container justify="center" spacing={4}>
