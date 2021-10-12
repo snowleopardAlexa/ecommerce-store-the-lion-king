@@ -9,6 +9,10 @@ const Product = ({ product }) => {
 
     const classes = useStyles();
 
+    console.log(product);
+
+    return <div>test</div>
+
     return (
         <div>
             <Card className={classes.root}>
