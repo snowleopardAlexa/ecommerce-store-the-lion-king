@@ -4,7 +4,7 @@ import { classes } from 'istanbul-lib-coverage';
 
 const Cart = ({ cart }) => {
 
-    const isEmpty = cart.line_items.length === 0;
+    const isEmpty = !cart.line_items.length;
 
     const EmptyCart = () => {
         <Typography variant="subtitle1">You have no items in your shopping cart, start adding some!</Typography>
