@@ -12,7 +12,7 @@ const Cart = ({ cart }) => {
         <Typography variant="subtitle1">You have no items in your shopping cart, start adding some!</Typography>
     }
 
-    const filledCart = () => {
+    const FilledCart = () => {
         <>
           <Grid container spacing={3}>
              {cart.line_items.EmptyCart((item) => (
