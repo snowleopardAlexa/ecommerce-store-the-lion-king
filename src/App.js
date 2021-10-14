@@ -16,9 +16,7 @@ const App = () => {
     }
 
     const fetchCart = async () => {
-        await commerce.cart.retrieve();
-
-        setCart(cart)
+        setCart(await commerce.cart.retrieve());
     }
 
     useEffect(() => {
