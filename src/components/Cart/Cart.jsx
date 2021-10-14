@@ -2,9 +2,9 @@ import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/icons';
 import { classes } from 'istanbul-lib-coverage';
 
-const Cart = () => {
+const Cart = ({ cart }) => {
 
-    const isEmpty = true;
+    const isEmpty = cart.line_items.length === 0;
 
     const EmptyCart = () => {
         <Typography variant="subtitle1">You have no items in your shopping cart, start adding some!</Typography>
@@ -13,7 +13,7 @@ const Cart = () => {
     const filledCart = () => {
         <>
           <Grid container spacing={3}>
-              
+
           </Grid>
         </>
     }
