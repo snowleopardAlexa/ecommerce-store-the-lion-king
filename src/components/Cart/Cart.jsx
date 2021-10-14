@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/icons';
 
-
+import useStyles from './styles';
 
 const Cart = ({ cart }) => {
 
     const isEmpty = !cart.line_items.length;
-  
+    const classes = useStyles();
 
     const EmptyCart = () => {
         <Typography variant="subtitle1">You have no items in your shopping cart, start adding some!</Typography>
