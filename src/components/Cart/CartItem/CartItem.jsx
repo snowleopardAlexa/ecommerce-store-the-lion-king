@@ -8,7 +8,7 @@ const CartItem = ({ item }) => {
     const classes = useStyles();
 
     return (
-        <div>
+        <Card>
             <CardMedia image={item.image.url} alt={item.name} className={classes.media} />
             <CardContent className={classes.cardContent}>
                 <Typography variant="h4">{item.name}</Typography>
@@ -22,7 +22,7 @@ const CartItem = ({ item }) => {
                 </div>
                 <Button variant="contained" type="button" color="secondary">Remove</Button>
             </CardActions>
-        </div>
+        </Card>
     )
 }
 
