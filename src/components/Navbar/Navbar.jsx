@@ -11,8 +11,6 @@ const Navbar = ({ totalItems }) => {
     const classes = useStyles();
     const location = useLocation();
 
-    if (location.pathname === '/')
-
     return (
         <>
           <AppBar position="fixed" className={classes.AppBar} color="inherit">
