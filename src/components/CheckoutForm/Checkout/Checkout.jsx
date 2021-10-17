@@ -9,7 +9,7 @@ const steps = ['Shipping address', 'Payment details'];
 
 export const Checkout = () => {
 
-     const [activeStep, setActiveStep] = useState(0);
+     const [activeStep, setActiveStep] = useState(2);
      const classes = useStyles();
 
      // confirmation payment
@@ -25,9 +25,8 @@ export const Checkout = () => {
 
     return (
         <>
-        <main>
           <div className={classes.toolbar} />
-          <main className={classes.layout} />
+          <main className={classes.layout}>
             <Paper className={classes.paper}>
                 <Typography variant="h4" align="center">Checkout</Typography>
                 <Stepper activeStep={0} className={classes.stepper}>
@@ -41,7 +40,7 @@ export const Checkout = () => {
             </Paper>
           </main>
         </>
-    )
+    );
 }
 
 export default Checkout;
