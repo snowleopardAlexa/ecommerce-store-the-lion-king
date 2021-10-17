@@ -20,8 +20,7 @@ const Navbar = ({ totalItems }) => {
                   </Typography>
                   <div className={classes.grow} />
                   <div className={classes.button}>
-                      <Link to="/cart">go to cart</Link>
-                      <IconButton aria-label="show cart items" color="inherit">
+                      <IconButton component={Link} to="/cart" aria-label="show cart items" color="inherit">
                           <Badge badgeContent={totalItems} color="secondary">
                               <ShoppingCart />
                           </Badge>
