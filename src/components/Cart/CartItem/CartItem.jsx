@@ -9,9 +9,9 @@ const CartItem = ({ item }) => {
 
     return (
         <Card>
-            <CardMedia image={item.image.url} alt={item.name} className={classes.media} />
+            <CardMedia className={classes.media} image={item.image.url} title={item.name} />
             <CardContent className={classes.cardContent}>
-                <Typography variant="h4">{item.name}</Typography>
+                <Typography variant="h6">{item.name}</Typography>
                 <Typography variant="h5">{item.line_total.formatted_with_symbol}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
@@ -23,7 +23,7 @@ const CartItem = ({ item }) => {
                 <Button variant="contained" type="button" color="secondary">Remove</Button>
             </CardActions>
         </Card>
-    )
+    );
 }
 
 export default CartItem;
