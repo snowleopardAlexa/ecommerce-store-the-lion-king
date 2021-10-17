@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core';
-import { classExpression } from '@babel/types';
 
 import useStyles from './styles';
 
@@ -10,6 +9,10 @@ export const Checkout = () => {
 
      const [activeStep, setActiveStep] = useState(0);
      const classes = useStyles();
+
+     const Form = () => activeStep === 0
+        ? <AddressForm />
+        : <PaymentForm />
 
     return (
         <>
@@ -25,6 +28,7 @@ export const Checkout = () => {
                          </Step>
                     ))}
                 </Stepper>
+                {activeStep === steps.length ? <Confirmation /> : <Form />}
             </Paper>
           </main>
         </>
