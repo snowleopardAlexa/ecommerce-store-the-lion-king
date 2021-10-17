@@ -13,7 +13,11 @@ export const Checkout = () => {
             <Paper className={classExpression.paper}>
                 <Typography variant="h4" align="center">Checkout</Typography>
                 <Stepper activeStep={0} className={classExpression.stepper}>
-                     
+                     {steps.map((step) => (
+                         <Step key={step}>
+                             <StepLabel>{step}</StepLabel>
+                         </Step>
+                    ))}
                 </Stepper>
             </Paper>
           </main>
