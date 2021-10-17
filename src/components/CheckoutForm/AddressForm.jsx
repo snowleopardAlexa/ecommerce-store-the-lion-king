@@ -16,7 +16,7 @@ const AddressForm = () => {
 
     // function fetch countries
     const fetchShippingCountries = async (checkoutTokenId) => {
-        const response = await commerce.services.localeListShippingCountries(checkoutTokenId);
+        const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
     }
 
     const methods = useForm();
