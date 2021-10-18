@@ -14,6 +14,12 @@ const AddressForm = ( { checkoutToken }) => {
     const [shippingOptions, setShippingOptions] = useState([]);
     const [shippingOption, setShippingOption] = useState([]);
 
+    const methods = useForm();
+
+    const countries =   Object.entries(shippingCountries).map(([code, name]) => ({
+        id: code, label: name
+    }));
+
     // function fetch countries
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
@@ -22,16 +28,25 @@ const AddressForm = ( { checkoutToken }) => {
         // get the array of keys: AUS, POL...
         setShippingCountry(Object.keys(countries));
     }
+ 
+    // function to fetch subdivisions
+    const fetchSubdivisions = async (countryCode) => {
+        const { subdivisions } = await commerce.services.localeListSubdivisons(countryCode);
+ 
+        setShippingSubdivisions(subdivisions);
+        setShippingSubdivisions(Object.keys(subdivisions)[0]);
+    }
 
+
+    // we can have multiple useffects in the app
     useEffect(() => {
         fetchShippingCountries(checkoutToken.id)
     }, []);
 
-    const methods = useForm();
+    useEffect(() => {
+        if(shippingCountry) fetchSubdivisions(shippingCountry);
+    }, [shippingCountry]);
 
-    const countries =   Object.entries(shippingCountries).map(([code, name]) => ({
-        id: code, label: name
-    }));
 
     return (
         <>
