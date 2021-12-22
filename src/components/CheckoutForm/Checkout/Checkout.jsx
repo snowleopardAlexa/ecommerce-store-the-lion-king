@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core';
-
+import { Link } from 'react-router-dom';
 import { commerce } from '../../../lib/commerce';
 import useStyles from './styles';
 import AddressForm from '../AddressForm';
@@ -25,7 +25,7 @@ export const Checkout = ( { cart, order, onCaptureCheckout, error }) => {
 
              setCheckoutToken(token);
            } catch (error) {
-             
+             console.log(error);
            }
        }
 
@@ -44,7 +44,7 @@ export const Checkout = ( { cart, order, onCaptureCheckout, error }) => {
      }
 
      // confirmation payment
-     const Confirmation = () => order.customer ? (
+     let Confirmation = () => order.customer ? (
          <>
            <div>
                <Typography variant="h5">Thank you for your purchase, firstName, lastName</Typography>
@@ -58,6 +58,15 @@ export const Checkout = ( { cart, order, onCaptureCheckout, error }) => {
        <div className={classes.spinner}>
          <CircularProgress />
        </div>
+     );   
+
+    if(error) {
+      <>
+        <Typography variant="h5"></Typography>
+        <br />
+        <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
+      </>
+    }
 
      const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
