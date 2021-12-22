@@ -44,7 +44,7 @@ export const Checkout = ( { cart, order, onCaptureCheckout, error }) => {
      }
 
      // confirmation payment
-     const Confirmation = () => (
+     const Confirmation = () => order.customer ? (
          <>
            <div>
                <Typography variant="h5">Thank you for your purchase, firstName, lastName</Typography>
@@ -54,7 +54,10 @@ export const Checkout = ( { cart, order, onCaptureCheckout, error }) => {
            <br />
            <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
          </>
-     );
+     ) : (
+       <div className={classes.spinner}>
+         <CircularProgress />
+       </div>
 
      const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
