@@ -12,6 +12,7 @@ export const Checkout = ( { cart }) => {
 
      const [activeStep, setActiveStep] = useState(0);
      const [checkoutToken, setCheckoutToken] = useState(null);
+     const [shippingData, setShippingData] = useState({});
      const classes = useStyles();
 
      useEffect(() => {
@@ -31,6 +32,13 @@ export const Checkout = ( { cart }) => {
 
        generateToken();
      }, [cart]);
+
+    const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    const backStep = () => setActiveStep([prevActiveStep])
+
+    const next = (data) => {
+       setShippingData(data);
+    }
 
      // confirmation payment
      const Confirmation = () => (
