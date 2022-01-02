@@ -8,7 +8,7 @@ import PaymentForm from '../PaymentForm';
 
 const steps = ['Shipping address', 'Payment details'];
 
-export const Checkout = ( { cart }) => {
+export const Checkout = ( { cart, order, onCaptureCheckout, error }) => {
 
      const [activeStep, setActiveStep] = useState(0);
      const [checkoutToken, setCheckoutToken] = useState(null);
@@ -52,7 +52,7 @@ export const Checkout = ( { cart }) => {
 
      const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
-        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} />
+        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
 
     return (
         <>
