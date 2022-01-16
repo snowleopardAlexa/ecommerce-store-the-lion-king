@@ -25,7 +25,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
              ))}
           </Grid>
           <div className={classes.cardDetails}>
-              <Typography variant="h4">
+              <Typography variant="h6">
                   Subtotal: { cart.subtotal.formatted_with_symbol}
               </Typography>
               <div>
@@ -42,7 +42,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
         <div>
             <Container>
                 <div className={classes.toolbar} />
-                <Typography className={classes.title} variant="h4" gutterBottom>Your Shopping Cart</Typography>
+                <Typography className={classes.title} variant="h6" gutterBottom>Your Shopping Cart</Typography>
                 { !cart.line_items.length ? <EmptyCart /> : <FilledCart /> }
             </Container>
         </div>
